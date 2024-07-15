@@ -1,0 +1,18 @@
+<img
+	ngSrc="assets/svg/logo.svg"
+	alt
+	width="150"
+	height="135"
+	priority
+/>
+
+<div class="auth-title-box">
+	<p class="auth-title">
+		Ваш логин <span>{{ "@" }}{{telegram_id()}}</span>
+	</p>
+    @if (!isAuthFail()) {
+        <p class="auth-status success">Выполняется вход</p>
+    }@else {
+        <p class="auth-status fail">Доступ запрещен</p>
+    }
+</div>

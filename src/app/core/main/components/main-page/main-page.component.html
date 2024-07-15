@@ -1,0 +1,17 @@
+<section class="menu">
+	<div class="menu-list">
+		@for (item of settings; track $index) {
+			<a [routerLink]="item.url">
+				<div class="menu-link">
+					<img
+						[src]="item.img"
+						alt=""
+						width="45"
+						height="45"
+					/>
+					<p class="menu-title">{{ item.name }}</p>
+				</div>
+			</a>
+		}
+	</div>
+</section>

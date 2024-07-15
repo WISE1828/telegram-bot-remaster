@@ -1,0 +1,117 @@
+<section class="users">
+	<div
+		class="user-card"
+		*ngFor="let department of department$ | async; let i = index"
+	>
+		<div class="user-card-box">
+			<div class="avatar">
+				<img
+					src="assets/svg/pie.svg"
+					alt=""
+					fill
+					width="48"
+					height="48"
+				/>
+			</div>
+			<div class="user-card-text-box">
+				<p class="user-name">{{ department.name }}</p>
+			</div>
+		</div>
+		<div class="user-card-actions">
+			<button
+				type="button"
+				class="delite"
+				(click)="changeDepartmentModalOpen(department.id, i)"
+			>
+				<img
+					src="assets/svg/pen.svg"
+					alt=""
+					width="24"
+					height="24"
+				/>
+			</button>
+			<button
+				type="button"
+				class="delite"
+				(click)="departmentModalOpen(department.id, i)"
+			>
+				<img
+					src="assets/svg/bin.svg"
+					alt=""
+					width="24"
+					height="24"
+				/>
+			</button>
+		</div>
+	</div>
+</section>
+@if (isDepartmentModalOpen()) {
+	<app-modal
+		title="Вы действительно хотите удалить?"
+		btnTitle="Удалить"
+		[action]="departmentDelete(departmentToDelete()!)"
+		(modalClose)="onDepartmentModalClose($event)"
+	>
+		<div
+			class="user-card-modal"
+			*ngIf="department$ | async as department"
+		>
+			<div class="user-card-box-modal">
+				<div class="img-box">
+					<img
+						src="assets/svg/pie.svg"
+						alt=""
+						fill
+						width="48"
+						height="48"
+					/>
+				</div>
+				<div class="user-card-text-box">
+					<p class="user-name">
+						{{ department[departmentToDeleteIndex()!].name }}
+					</p>
+				</div>
+			</div>
+		</div>
+	</app-modal>
+}
+
+@if (isChangeDepartmentModalOpen()) {
+    <ng-container *ngIf="department$ | async as department">
+        <app-modal
+		title="Изменить <span class = 'title-color'>{{department[departmentToDeleteIndex()!].name}}</span> ?"
+		btnTitle="Применить"
+		[action]="
+			departmentChange(
+				department[departmentToDeleteIndex()!].id,
+				nameChange
+			)
+		"
+		(modalClose)="changeDepartmentModalClose($event)"
+	>
+		<div class="modal-input">
+			<div class="modal-close">
+				<img
+					src="assets/svg/pen.svg"
+					alt=""
+					width="24"
+					height="24"
+				/>
+			</div>
+			<input
+				type="text"
+				placeholder="Название отдела"
+				#nameChange
+			/>
+		</div>
+	</app-modal>
+    </ng-container>
+}
+
+@if (isAddDepartmentModalOpen()) {
+	<app-modal-add-department
+		(modalClose)="addDepartmentModalClose($event)"
+	></app-modal-add-department>
+}
+
+<!-- <app-modal-change-name-department></app-modal-change-name-department> -->

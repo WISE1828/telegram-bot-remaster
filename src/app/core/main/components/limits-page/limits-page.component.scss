@@ -1,0 +1,96 @@
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+.limits {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: appear 0.2s ease forwards;
+}
+.limits-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    border-radius: 20px;
+    padding: 20px;
+    background: var(--color-dark-gray);
+}
+.limits-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.number-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--color-light-gray);
+}
+.number {
+    font-weight: 300;
+    font-size: 24px;
+    color: var(--color-light);
+}
+.gold-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, #ffe88f 0%, #ad7b00 100%);
+
+}
+.limits-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+input{
+    border-radius: 10px;
+    flex: 1;
+    height: 40px;
+    background-color: var(--color-light-gray);
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--color-light);
+    padding-left: 15px;
+    outline: 0 !important;
+    border: none;
+
+    &::placeholder{
+        font-weight: 300;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
+input::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
+input:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
+input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
+input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+
+.accept {
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--color-light);
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-light-gray);
+    margin-top: auto;
+}

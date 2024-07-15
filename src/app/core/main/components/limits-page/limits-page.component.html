@@ -1,0 +1,44 @@
+<section class="limits" *ngIf="limits$ | async as limits">
+    <div class="limits-box">
+        <div class="limits-header">
+            <div class="number-box">
+                <p class="number">1</p>
+            </div>
+            <div class="gold-line"></div>
+        </div>
+        <div class="limits-input">
+            <div class="number-box">
+                <img src="assets/svg/telegram.svg" alt="" width="24px" height="24px">
+            </div>
+            <input type="text" [placeholder]="limits[0].telegram_id" #telegramIdChange1>
+        </div>
+        <div class="limits-input">
+            <div class="number-box">
+                <img src="assets/svg/limits.svg" alt="" width="24px" height="24px">
+            </div>
+            <input type="text" [placeholder]="limits[0].value" #limitChange1>
+        </div>
+        <button class = "accept" (click)="changeLimit(1, limits[0].user_id, telegramIdChange1.value, +limitChange1.value)">Применить</button>
+    </div>
+    <div class="limits-box">
+        <div class="limits-header">
+            <div class="number-box">
+                <p class="number">2</p>
+            </div>
+            <div class="gold-line"></div>
+        </div>
+        <div class="limits-input">
+            <div class="number-box">
+                <img src="assets/svg/telegram.svg" alt="" width="24px" height="24px">
+            </div>
+            <input type="text" [placeholder]="limits[1].telegram_id" #telegramIdChange2>
+        </div>
+        <div class="limits-input">
+            <div class="number-box">
+                <img src="assets/svg/limits.svg" alt="" width="24px" height="24px">
+            </div>
+            <input type="text" [placeholder]="limits[1].value" #limitChange2>
+        </div>
+        <button class = "accept" (click)="changeLimit(2, limits[1].user_id, telegramIdChange2.value, +limitChange2.value)">Применить</button>
+    </div>
+</section>

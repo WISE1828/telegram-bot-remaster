@@ -1,0 +1,14 @@
+<div class="admin-card-box" [ngClass]="{'admin-card-border': isUsersPage()}">
+    <div class="avatar">
+        <img [ngSrc] = "telegram_photo_url" alt="" fill>
+    </div>
+    <div class="admin-card-text-box">
+        <p class="telegram-id"><span>{{"@"}}</span>{{telegram_id}}</p>
+        <p class="user-name">{{telegram_first_name}} {{telegram_last_name}}</p>
+    </div>
+</div>
+<button class="admin-card-btn" *ngIf="action()" (click)="action()!()">
+    <img src="assets/svg/3dot.svg" alt="">
+</button>
+
+

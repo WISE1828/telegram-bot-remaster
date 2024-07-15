@@ -1,0 +1,20 @@
+<div class="modal-bg">
+    <div class="modal-body">
+        <div class="modal-actions">
+            <div class="modal-close">
+                <img src="assets/svg/tools-icon.svg" alt="" width="24" height="24">
+            </div>
+            <p class="modal-title">Добавить новый отдел?</p>
+            <button type="button" class="modal-close" (click)="modalClose.emit(false)">
+                <img src="assets/svg/x.svg" alt="">
+            </button>
+        </div>
+        <div class="modal-input">
+            <div class="modal-close">
+                <img src="assets/svg/pen.svg" alt="" width="24" height="24">
+            </div>
+            <input type="text" placeholder="Название инструмента" #inputTelegramID>
+        </div>
+        <button class = "accept" (click)="createDepartment(inputTelegramID.value)">Применить</button>
+    </div>
+</div>

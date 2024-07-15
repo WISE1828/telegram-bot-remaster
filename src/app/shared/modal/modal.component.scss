@@ -1,0 +1,69 @@
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    padding-inline: 20px;
+    animation: appear 0.2s ease forwards;
+}
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    background-color: var(--color-dark-gray);
+    border-radius: 20px;
+    padding: 20px;
+}
+.modal-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-title {
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--main-text);
+}
+.modal-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-light-gray);
+    transition-duration: 0.2s;
+    &:active {
+        background-color: var(--color-dark-gray);
+    }
+    &:hover{
+        background-color: var(--color-dark-gray);
+    }
+}
+.accept {
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--color-light);
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-light-gray);
+    margin-top: auto;
+}
+
+.title-color{
+    color: var(--color-accent);
+}

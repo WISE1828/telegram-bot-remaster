@@ -1,0 +1,23 @@
+
+.menu-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.menu-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 20px;
+    width: 167px;
+    height: 167px;
+    background-color: var(--color-dark-gray);
+}
+.menu-title {
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+}

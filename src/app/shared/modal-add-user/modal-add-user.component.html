@@ -1,0 +1,20 @@
+<div class="modal-bg">
+    <div class="modal-body">
+        <div class="modal-actions">
+            <div class="modal-close">
+                <img src="assets/svg/ep_user-icon.svg" alt="" width="24" height="26">
+            </div>
+            <p class="modal-title">Добавить пользователя ?</p>
+            <button type="button" class="modal-close" (click)="modalClose.emit(false)">
+                <img src="assets/svg/x.svg" alt="">
+            </button>
+        </div>
+        <div class="modal-input">
+            <div class="modal-close">
+                <img src="assets/svg/telegram.svg" alt="" width="24" height="26">
+            </div>
+            <input type="text" placeholder="Telegram id" #inputTelegramID>
+        </div>
+        <button class = "accept" (click)="createUser(inputTelegramID.value)">Применить</button>
+    </div>
+</div>

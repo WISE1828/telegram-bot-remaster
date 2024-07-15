@@ -1,0 +1,37 @@
+<header class="header">
+	@if (isMainPage) {
+		<img
+			src="assets/svg/header-logo.svg"
+			alt=""
+			width="161"
+			height="39"
+		/>
+	} @else {
+		<div class="header-actions">
+			<button (click)="router.navigate(['/main'])">
+				<img
+					src="assets/svg/arrow.svg"
+					alt=""
+					width="30"
+					height="30"
+				/>
+			</button>
+			<p class="header-title">{{ title() }}</p>
+		</div>
+		<div class="burger-menu">
+			<button
+				type="button"
+				class="header-burger"
+                (click)="burgerMenuOpen()"
+			>
+				<img
+					src="assets/svg/burger_menu.svg"
+					alt=""
+					width="24"
+					height="24"
+				/>
+			</button>
+			<app-burger-menu class="menu-body" *ngIf="isBurgerMenuOpen()" (modalClose)="burgerMenuClose()"></app-burger-menu>
+		</div>
+	}
+</header>

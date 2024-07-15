@@ -1,0 +1,70 @@
+<section class="users">
+	<div
+		class="user-card"
+		*ngFor="let user of users$ | async; let i = index"
+	>
+		<div class="user-card-box">
+			<div class="avatar">
+				<img
+					[ngSrc]="user.image_url"
+					alt=""
+					fill
+				/>
+			</div>
+			<div class="user-card-text-box">
+				<p class="telegram-id">
+					<span>{{ "@" }}</span
+					>{{ user.telegram_id }}
+				</p>
+				<p class="user-name">{{ user.first_name }} {{ user.last_name }}</p>
+			</div>
+		</div>
+		<div class="user-card-actions">
+			<button
+				type="button"
+				class="delite"
+				(click)="userModalOpen(user.user_id, i)"
+			>
+				<img
+					ngSrc="assets/svg/bin.svg"
+					alt=""
+					width="24"
+					height="24"
+				/>
+			</button>
+		</div>
+	</div>
+</section>
+@if (isUsersModalOpen()) {
+	<app-modal
+		title="Вы действительно хотите удалить?"
+		btnTitle="Удалить"
+		[action]="userDelete(userToDelete()!)"
+		(modalClose)="onUserModalClose($event)"
+	>
+		<div
+			class="user-card-modal"
+			*ngIf="users$ | async as users"
+		>
+			<div class="user-card-box-modal">
+				<div class="avatar">
+					<img
+						[ngSrc]="users[userToDeleteIndex()!].image_url"
+						alt=""
+						fill
+					/>
+				</div>
+				<div class="user-card-text-box">
+					<p class="telegram-id">
+						<span>{{ "@" }}</span
+						>{{ users[userToDeleteIndex()!].telegram_id }}
+					</p>
+					<p class="user-name">{{ users[userToDeleteIndex()!].first_name }} {{ users[userToDeleteIndex()!].last_name }}</p>
+				</div>
+			</div>
+		</div>
+	</app-modal>
+}
+@if (isAddUserModalOpen()) {
+	<app-modal-add-user (modalClose)="addUserModalClose($event)"></app-modal-add-user>
+}

@@ -1,0 +1,12 @@
+<div class="modal-bg">
+    <div class="modal-body">
+        <div class="modal-actions">
+            <p class="modal-title" [innerHTML]="title"></p>
+            <button type="button" class="modal-close" (click)="modalClose.emit(false)">
+                <img src="assets/svg/x.svg" alt="">
+            </button>
+        </div>
+        <ng-content></ng-content>
+        <button class = "accept" (click)="accept()">{{btnTitle}}</button>
+    </div>
+</div>

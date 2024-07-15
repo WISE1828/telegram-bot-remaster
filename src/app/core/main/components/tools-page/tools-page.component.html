@@ -1,0 +1,114 @@
+<section class="users">
+	<div
+		class="user-card"
+		*ngFor="let tool of tools$ | async; let i = index"
+	>
+		<div class="user-card-box">
+			<div class="avatar">
+				<img
+					src="assets/svg/tools-icon.svg"
+					alt=""
+					fill
+					width="38"
+					height="38"
+				/>
+			</div>
+			<div class="user-card-text-box">
+				<p class="user-name">{{ tool.name }}</p>
+			</div>
+		</div>
+		<div class="user-card-actions">
+			<button
+				type="button"
+				class="delite"
+                (click)="changeToolModalOpen(tool.id, i)"
+			>
+				<img
+					src="assets/svg/pen.svg"
+					alt=""
+					width="24"
+					height="24"
+				/>
+			</button>
+			<button
+				type="button"
+				class="delite"
+				(click)="toolsModalOpen(tool.id, i)"
+			>
+				<img
+					src="assets/svg/bin.svg"
+					alt=""
+					width="24"
+					height="24"
+				/>
+			</button>
+		</div>
+	</div>
+</section>
+
+@if (isToolsDeleteModalOpen()) {
+	<app-modal
+		title="Вы действительно хотите удалить?"
+		btnTitle="Удалить"
+		[action]="toolsDelete(toolsToEdit()!)"
+		(modalClose)="onToolsModalClose($event)"
+	>
+		<div
+			class="user-card-modal"
+			*ngIf="tools$ | async as tool"
+		>
+			<div class="user-card-box-modal">
+				<div class="img-box">
+					<img
+						src="assets/svg/tools-icon.svg"
+						alt=""
+						fill
+						width="38"
+						height="38"
+					/>
+				</div>
+				<div class="user-card-text-box">
+					<p class="user-name">
+						{{ tool[toolsToEditIndex()!].name }}
+					</p>
+				</div>
+			</div>
+		</div>
+	</app-modal>
+}
+@if (isToolsChangeModalOpen()) {
+	<ng-container *ngIf="tools$ | async as tool">
+		<app-modal
+			title="Изменить <span class = 'title-color'>{{
+				tool[toolsToEditIndex()!].name
+			}}</span> ?"
+			btnTitle="Применить"
+			[action]="
+				toolsChange(tool[toolsToEditIndex()!].id, nameChange)
+			"
+			(modalClose)="changeToolModalClose($event)"
+		>
+			<div class="modal-input">
+				<div class="modal-close">
+					<img
+						src="assets/svg/pen.svg"
+						alt=""
+						width="24"
+						height="24"
+					/>
+				</div>
+				<input
+					type="text"
+					placeholder="Название отдела"
+					#nameChange
+				/>
+			</div>
+		</app-modal>
+	</ng-container>
+}
+
+@if (isToolsAddModalOpen()) {
+	<app-modal-add-tool
+		(modalClose)="addToolModalClose($event)"
+	></app-modal-add-tool>
+}

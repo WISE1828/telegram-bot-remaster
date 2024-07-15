@@ -1,0 +1,41 @@
+:host {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 7.5rem;
+    margin-top: 7.5rem;
+}
+
+.auth-title-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+
+    .auth-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        > span {
+            color: var(--color-accent);
+        }
+    }
+    .auth-status {
+        font-weight: 400;
+        font-size: 1rem;
+        
+    }
+    .success {
+        background: linear-gradient(143deg, #93de81 60%, #247b0e 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .fail {
+        background: linear-gradient(135deg, #c95d5d 60%, #8b1f1f 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}

@@ -1,0 +1,68 @@
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes appear_bg {
+    from {
+        background: rgba(0, 0, 0, 0);
+    }
+    to {
+        background: rgba(0, 0, 0, 0.55);
+    }
+}
+:host {
+  
+}
+.burger-menu-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 100;
+    animation: appear_bg 0.2s ease forwards;
+}
+.burger-menu-box {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    z-index: 110;
+    background-color: var(--color-dark-gray);
+    right: calc(100% - 40px);
+    margin-top: 15px;
+    animation: appear 0.2s ease forwards;
+}
+.burger-menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-light-gray);
+}
+
+.modal-close {
+    position: relative;
+    z-index: 110;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-dark-gray);
+    transition-duration: 0.2s;
+    &:active {
+        background-color: var(--color-light-gray);
+    }
+    &:hover {
+        background-color: var(--color-light-gray);
+    }
+}
