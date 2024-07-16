@@ -3,7 +3,7 @@
     align-items: center;
     flex-direction: column;
     gap: 7.5rem;
-    margin-top: 7.5rem;
+    margin-top: 12.5rem;
 }
 
 .auth-title-box {
@@ -22,20 +22,14 @@
     }
     .auth-status {
         font-weight: 400;
-        font-size: 1rem;
+        font-size: 16px;
         
     }
     .success {
-        background: linear-gradient(143deg, #93de81 60%, #247b0e 100%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #3E8C2A;
     }
 
     .fail {
-        background: linear-gradient(135deg, #c95d5d 60%, #8b1f1f 100%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #B63737;
     }
 }
