@@ -141,7 +141,7 @@ input {
     height: 40px;
     background-color: var(--color-light-gray);
     font-weight: 300;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--color-light);
     padding-left: 15px;
     outline: 0 !important;
@@ -149,7 +149,7 @@ input {
 
     &::placeholder{
         font-weight: 300;
-        font-size: 14px;
+        font-size: 16px;
         color: rgba(255, 255, 255, 0.5);
     }
 }
