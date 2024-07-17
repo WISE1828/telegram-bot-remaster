@@ -5,9 +5,10 @@ import { Inject, Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TelegramService {
-
-  private window;
+  
+  window;
   tg: any;
+
 
   constructor(@Inject(DOCUMENT) private _document: any) { 
     this.window = this._document.defaultView; 

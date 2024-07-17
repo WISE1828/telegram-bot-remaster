@@ -3,6 +3,7 @@ import {
 	ChangeDetectionStrategy,
 	Component,
 	inject,
+	OnInit,
 	signal,
 } from "@angular/core"
 import { TelegramService } from "../../../../shared/services/telegram.service"
@@ -32,7 +33,7 @@ export class LoadingScreenComponent {
 	}
 
 	getID() {
-		timer(1000).subscribe(() => {
+		timer(1500).subscribe(() => {
 			this.authService.getRequest().subscribe({
 				error: res => {
 					if (res.status === 200) {
@@ -45,4 +46,6 @@ export class LoadingScreenComponent {
 			})
 		})
 	}
+
+	
 }

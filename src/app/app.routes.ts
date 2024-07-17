@@ -8,6 +8,6 @@ export const routes: Routes = [
 		path: "main",
 		loadChildren: () =>
 			import("./core/main/main.routes").then(m => m.mainRoutes),
-		canActivate: [authGuard]
+		// canActivate: [authGuard]
 	},
 ]

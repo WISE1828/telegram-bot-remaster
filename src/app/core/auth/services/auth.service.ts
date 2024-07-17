@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, OnInit } from '@angular/core';
 import { TelegramService } from '../../../shared/services/telegram.service';
 import { BehaviorSubject, tap, timer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -12,7 +12,9 @@ export class AuthService {
 
   isAuth = new BehaviorSubject(false)
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
+
+  
 
   getRequest() {
     return this.http.get(`auth/${this.telegram.tg?.initDataUnsafe?.user?.username}`, 
@@ -20,3 +22,5 @@ export class AuthService {
     }
      
 }
+
+// return this.http.get(`auth/${this.telegram.tg?.initDataUnsafe?.user?.username}`
